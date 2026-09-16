@@ -1,0 +1,10 @@
+{
+  "name": "tag-e-dele-ecommerce-root",
+  "version": "1.0.0",
+  "description": "TAG É DEL É Ecommerce Root Dev Runner",
+  "main": "TAG_E_DELE_ECOMMERCE/server.js",
+  "scripts": {
+    "dev": "npm run dev --prefix TAG_E_DELE_ECOMMERCE",
+    "start": "npm run start --prefix TAG_E_DELE_ECOMMERCE"
+  }
+}

@@ -1,0 +1,1 @@
+<?php require_once 'functions.php';require_admin();$id=(int)($_GET['id']??0);if($id){$s=$conn->prepare('DELETE FROM products WHERE id=?');$s->bind_param('i',$id);$s->execute();flash('success','Product deleted.');}redirect('admin_products.php'); ?>

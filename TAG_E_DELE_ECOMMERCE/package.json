@@ -1,0 +1,19 @@
+{
+  "name": "tag-e-dele-ecommerce",
+  "version": "1.0.0",
+  "description": "TAG É DEL É - Men's Wear Ecommerce Development Server",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
