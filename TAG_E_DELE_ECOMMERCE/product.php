@@ -37,22 +37,7 @@ if (empty($availSizes) && $hasSizes) {
 
 // Generate thumbnail gallery candidates based on category
 $galleryImages = [product_image($p['image'])];
-$catFolderMap = [
-    'shirts' => 'Shirts/shirt_',
-    't-shirts' => 'T-Shirts/tshirt_',
-    'jeans' => 'Jeans/jeans_',
-    'jackets' => 'Jackets/jacket_',
-    'trousers' => 'Trousers/trouser_'
-];
-if (isset($catFolderMap[$catLower])) {
-    $prefix = $catFolderMap[$catLower];
-    for ($i = 1; $i <= 4; $i++) {
-        $candidate = $prefix . $i . '.png';
-        if ($candidate !== $p['image'] && file_exists(__DIR__ . '/' . $candidate)) {
-            $galleryImages[] = $candidate;
-        }
-    }
-}
+
 $galleryImages = array_unique(array_slice($galleryImages, 0, 4));
 
 include 'header.php';
