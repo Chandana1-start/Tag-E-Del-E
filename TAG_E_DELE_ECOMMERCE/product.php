@@ -22,15 +22,37 @@ $page_title = $p['name'] . ' | ' . SHOP_NAME;
 
 $stock = (int)$p['stock'];
 $isOutOfStock = ($stock <= 0);
+
 $catLower = strtolower(trim($p['category']));
-$hasSizes = in_array($catLower, ['shirts', 't-shirts', 'jeans', 'trousers', 'jackets', 'apparel'], true) || !empty($p['sizes']);
+$catLower = str_replace(['_', ' '], '-', $catLower);
+
+$hasSizes = in_array($catLower, [
+    'shirt',
+    'shirts',
+    't-shirt',
+    't-shirts',
+    'jeans',
+    'trouser',
+    'trousers',
+    'jacket',
+    'jackets',
+    'apparel'
+], true) || !empty($p['sizes']);
 
 $availSizes = [];
+
 if (!empty($p['sizes'])) {
-    $availSizes = array_filter(array_map('trim', explode(',', $p['sizes'])));
+    $availSizes = array_filter(
+        array_map('trim', explode(',', $p['sizes']))
+    );
 }
+
 if (empty($availSizes) && $hasSizes) {
-    $availSizes = in_array($catLower, ['jeans', 'trousers'], true)
+    $availSizes = in_array($catLower, [
+        'jeans',
+        'trouser',
+        'trousers'
+    ], true)
         ? ['30', '32', '34', '36', '38']
         : ['S', 'M', 'L', 'XL', 'XXL'];
 }
